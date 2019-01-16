@@ -1,0 +1,54 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: clean-data
+  kafka:
+    bootstrap-servers: 172.30.34.40:9092,172.30.34.41:9092
+    #    bootstrap-servers: localhost:9092
+    client-id: column-check
+    consumer:
+      group-id: column-check-group
+    producer:
+      compression-type: gzip
+  data:
+    mongodb:
+      uri: mongodb://192.168.10.144:27000/bigdata
+    redis:
+      clusterNodes: 172.30.34.3:7000,172.30.34.3:7001,172.30.34.3:7002,172.30.34.3:7003,172.30.34.3:7004,172.30.34.3:7005
+      commandTimeout: 10000
+      expireSeconds: 7200
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@172.30.35.100:1521:orcl
+    username: bigdat
+    password: bigdat
+  #      maxWait: 60000
+  #      timeBetweenEvictionRunsMillis: 60000
+  #      initialSize: 2
+  #      minIdle: 2
+  #      maxActive: 50
+  #      removeAbandoned: true
+  #      removeAbandonedTimeout : 1000
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: none
+    database: oracle
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 10000
+logging:
+  level:
+#    org.apache.spark.rdd: off  #指定包的日志输出级别
+    root: info
+  pattern:
+    console: '%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n'
+
+kafka:
+  consumer:
+    fechSize: 10000
+    concurrency: 10
+    statisticFechSize: 200000
