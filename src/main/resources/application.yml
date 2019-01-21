@@ -43,7 +43,7 @@ spring:
 logging:
   level:
 #    org.apache.spark.rdd: off  #指定包的日志输出级别
-    root: info
+    root: off
   pattern:
     console: '%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n'
 
