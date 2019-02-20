@@ -22,18 +22,18 @@ public class SparkSqlTest {
 
 
     public static void jdbc(){
-//        Properties properties = new Properties();
-//        properties.setProperty("user", "bigdat");
-//        properties.setProperty("password", "bigdat");
-//        session.read().jdbc("jdbc:oracle:thin:@172.30.35.100:1521:orcl", "public_area", properties)
-//                .createOrReplaceTempView("temp");
-//        session.sql("select * from temp where temp.code = 500103000000").show();
+        Properties properties = new Properties();
+        properties.setProperty("user", "bigdat");
+        properties.setProperty("password", "bigdat");
+        session.read().jdbc("jdbc:oracle:thin:@172.30.35.100:1521:orcl", "public_area", properties)
+                .createOrReplaceTempView("temp");
+        session.sql("select * from temp where temp.code = 500103000000").show();
 
-        session.read().json("F:\\360YunFile\\codeManager\\demo\\file\\json.json").as(Encoders.bean(People.class)).write()
-                .format("jdbc").option("url", "jdbc:oracle:thin:@172.30.35.100:1521:orcl")
-                .option("dbtable", "cx_test")
-                .option("user", "bigdat")
-                .option("password", "bigdat").mode(SaveMode.Append).save() ;
+//        session.read().json("F:\\360YunFile\\codeManager\\demo\\file\\json.json").as(Encoders.bean(People.class)).write()
+//                .format("jdbc").option("url", "jdbc:oracle:thin:@172.30.35.100:1521:orcl")
+//                .option("dbtable", "cx_test")
+//                .option("user", "bigdat")
+//                .option("password", "bigdat").mode(SaveMode.Append).save() ;
 
 
     }
