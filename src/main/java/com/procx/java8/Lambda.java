@@ -64,7 +64,6 @@ public class Lambda {
                 .collect(Collectors.summarizingDouble((x) -> x));
         System.out.println(collect6.getMax());
         System.out.println(collect6.getCount());
-
         //拼接 444,555,666,777,555
         String collect7 = list.stream()
                 .map(s -> s.toString())
@@ -86,7 +85,6 @@ public class Lambda {
                 .map(s -> (s + 1))
                 .reduce((x, y) -> x + y);  // x是计算后的返回值，默认为第一项的值，y为其后每一项的值。
         System.out.println(reduce1);
-
     }
 
 }
